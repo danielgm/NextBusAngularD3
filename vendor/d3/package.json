@@ -1,0 +1,7 @@
+{
+  "name": "d3",
+  "version": "3.3.9",
+  "description": "d3.v3.js",
+  "keywords": ["d3"],
+  "main": "./d3.js"
+}

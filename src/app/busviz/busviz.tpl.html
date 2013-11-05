@@ -1,0 +1,39 @@
+<div>
+	<h1>Bus Data Visualization</h1>
+
+	<div class="btn-toolbar" role="toolbar">
+		<div class="btn-group">
+			<button class="btn btn-default" ng-click="vehicleRefreshEnabled = true;" ng-disabled="vehicleRefreshEnabled">Start</button>
+			<button class="btn btn-default" ng-click="vehicleRefreshEnabled = false;" ng-disabled="!vehicleRefreshEnabled">Stop</button>
+		</div>
+		<div class="btn-group">
+			<button
+				ng-class="{btn: true, btnDefault: true, active: vehicleDisplayMode == 'normal'}"
+				ng-click="vehicleDisplayMode = 'normal';">Normal</button>
+			<button
+				ng-class="{btn: true, btnDefault: true, active: vehicleDisplayMode == 'reportDelay'}"
+				ng-click="vehicleDisplayMode = 'reportDelay';">Report Delay</button>
+			<button
+				ng-class="{btn: true, btnDefault: true, active: vehicleDisplayMode == 'speed'}"
+				ng-click="vehicleDisplayMode = 'speed';">Vehicle Speed</button>
+		</div>
+	</div>
+
+	<div class="chart">
+		<bustr
+			arteries="arteries"
+			freeways="freeways"
+			neighborhoods="neighborhoods"
+			streets="streets"
+			vehicles="vehicles"
+			vehicle-refresh-interval="vehicleRefreshInterval"
+			vehicle-display-mode="vehicleDisplayMode"
+			selected-vehicle-id="selectedVehicleId"></bustr>
+	</div>
+	<div class="sidebar">
+		<h4>Selected Vehicle</h4>
+		<p ng-show="selectedVehicleId"><label>ID</label>: {{selectedVehicleId}}</p>
+		<p ng-show="selectedVehicleId"><label>Report delay</label>: {{selectedVehicle.reportDelay}}&nbsp;s</p>
+		<p ng-show="selectedVehicleId"><label>Speed</label>: {{selectedVehicle.speed}}&nbsp;km/h</p>
+	</div>
+</div>
